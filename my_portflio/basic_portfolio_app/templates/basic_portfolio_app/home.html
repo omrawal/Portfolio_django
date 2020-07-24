@@ -1,0 +1,17 @@
+{% extends "basic_portfolio_app/base.html" %} {% load static %} {% block body_block %}
+<div class="row" style=" padding:50px" id="grad">
+    {% for data in homepage_data %}
+    <div class="col-lg-6 col-md-12 no-padding banner-right">
+        <p><img src="{{data.fav_code.url}}" style="border-radius: 5%;" height="500" width="500" alt="My Fav Code Snippet"> </p>
+    </div>
+    <div class="col-lg-6 col-md-12 banner-left">
+        <p> <img src="{{data.profile_pic.url}}" style="height: 300px; border-radius: 50%; margin-top: 30px; margin-left: 25px;" alt="My ProfilePic"> </p>
+        <p style="font-family: Poppins,sans-serif; font-size:45px">Hi, I'm</p>
+        <p style="font-family: Poppins,sans-serif; font-size:45px;">
+            <strong>Om Rawal</strong>
+        </p>
+        <p style="font-family: Poppins,sans-serif; font-size:45px">{{ data.job_profile }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock body_block %}

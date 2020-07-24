@@ -1,0 +1,90 @@
+{% extends "basic_portfolio_app/base.html" %} {% load static %} {% block body_block %}
+
+<div style="padding: 40px; display: flex; align-items: center; justify-content: center;" id="grad">
+    {% for data in about_cv %}
+    <button style="margin: 10px; height:38px; width:150px " type="button" class="btn btn-primary" onClick="parent.open('{{data.cv.url}}')">Resume</button> {% endfor %}
+    <a href="{% url 'portfolio-contact' %}" class="btn btn-primary">Contact Me</a>
+</div>
+
+<div class="row" style="padding: 40px;" id="grad">
+
+
+
+    <div class="column" style=" padding:50px">
+        <h2>Frameworks</h2>
+        <ul>
+            {% for data in about_framework %}
+            <li>
+                <h4>{{data.framework_name}} </h4>
+                <!-- <div class="container"> -->
+                <div style="width: 100% ;
+                    background-color: #2196f3;text-align: center;
+                    font-weight: bolder;
+                    padding-top: 3px;
+                    padding-bottom: 3px;
+                    color: white;
+                    border-radius: 20px;box-sizing: border-box;">{{data.f_level}}0%
+                </div>
+                <!-- </div> -->
+            </li>
+            {% endfor %}
+        </ul>
+
+        <!-- </div>
+    <div class="column"> -->
+        <h2>Languages</h2>
+        <ul>
+            {% for data in about_language %}
+            <li>
+                <h3>{{data.language_name}}</h3>
+                <div style="width: 100% ;
+                    background-color: #2196f3;text-align: center;
+                    font-weight: bolder;
+                    padding-top: 3px;
+                    padding-bottom: 3px;
+                    color: white;
+                    border-radius: 20px;box-sizing: border-box;">{{data.l_level}}0%
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+    <div class="column" style=" padding:50px">
+        <h2>My Achievements</h2>
+        <!-- {% for data in about_certi %}
+        <button type="button" class="btn btn-primary" onClick="parent.open('{{data.c_doc.url}}')">Certificate</button>
+        <p>Title: {{data.c_title}}</p>
+        <p>Date of issue: {{data.c_date}}</p>
+        <p>Number:{{data.c_number}}</p>
+        <p>Url:<a href="{{data.c_url}}">{{data.c_url}}</a></p>
+        {% endfor %} -->
+        <div class="wrapper">
+
+
+            {% for data in about_certi %}
+            <div class="flip-card" onClick="parent.open('{{data.c_doc.url}}')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h2>{{data.c_company}}</h2>
+                        <h4>{{data.c_title}}</h4>
+                        <h5>Click To view File</h5>
+
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Date of issue: {{data.c_date}}</p>
+                        <p>Number:{{data.c_number}}</p>
+                        <p>Url:<a href="{{data.c_url}}">{{data.c_url}}</a></p>
+                        <h5>Click To view File</h5>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+
+</div>
+
+{% endblock body_block %}

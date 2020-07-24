@@ -1,0 +1,20 @@
+{% extends "basic_portfolio_app/base.html" %} {% block body_block %}
+<div style="padding: 40px;" id="grad">
+    <h1 class="mb-10">Latest Done Projects</h1>
+    <div class="wrapper2">
+
+        {% for data in project_data %}
+        <div>
+            <strong>Title: {{data.title}}</strong>
+            <div class="image-box"><img src="{{data.logo.url}}" alt="LOGO" height="300" width="300"></div>
+            <p>Description:{{data.description}}</p>
+            <p>Github Link: <a href="{{data.github_link}}">{{data.github_link}}</a></p>
+            <p>Other Link: <a href="{{data.other_link}}">{{data.other_link}}</a></p>
+            <p>TechStack:{{data.tech_stack}}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endblock body_block %}
